@@ -151,22 +151,19 @@ def build_figure(view_mode: str = "globe", continent: str = "All") -> go.Figure:
         showlakes=True,
         lakecolor="#081624",
         showrivers=False,
-        showgraticules=True,
-        graticulecolor="rgba(80,160,220,0.07)",
         bgcolor="rgba(0,0,0,0)",
         showframe=False,
     )
 
     if view_mode == "globe":
         geo.update(
-            projection_type="orthographic",
-            projection_rotation=dict(lon=10, lat=20, roll=0),
+            projection=dict(type="orthographic", rotation=dict(lon=10, lat=20, roll=0)),
         )
     else:
         geo.update(
-            projection_type="natural earth",
-            lataxis_range=[-90, 90],
-            lonaxis_range=[-180, 180],
+            projection=dict(type="natural earth"),
+            lataxis=dict(range=[-90, 90]),
+            lonaxis=dict(range=[-180, 180]),
         )
 
     fig.update_layout(
