@@ -276,13 +276,13 @@ html, body {
 /* ─── Globe Container ────────────────────────────────────────────────────── */
 .globe-wrap {
   width: 100%;
-  /* height is driven by dcc.Graph style calc(100vh-130px) — no need to set it here */
+  flex: 1;               /* Fill all remaining vertical space after header+controls */
+  min-height: 400px;
   position: relative;
-  flex-shrink: 0;
   overflow: hidden;
 }
 
-/* Make every Dash/Plotly wrapper fill the graph element */
+/* Make every Dash/Plotly wrapper fill the defined parent height */
 .globe-wrap .dash-graph {
   width: 100% !important;
   height: 100% !important;

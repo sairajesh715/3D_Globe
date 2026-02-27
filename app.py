@@ -153,7 +153,6 @@ def build_figure(view_mode: str = "globe", continent: str = "All") -> go.Figure:
             tracegroupgap=3,
         ),
         margin=dict(l=0, r=0, t=0, b=0),
-        height=650,
         uirevision=view_mode,
     )
     return fig
@@ -523,6 +522,7 @@ app.layout = html.Div(
             dcc.Graph(
                 id="globe",
                 figure=build_figure(),
+                responsive=True,
                 config={
                     "displayModeBar": True,
                     "scrollZoom": True,
@@ -533,7 +533,7 @@ app.layout = html.Div(
                         "height": 900, "width": 1400, "scale": 2,
                     },
                 },
-                style={"height": "650px", "width": "100%"},
+                style={"height": "100%", "width": "100%"},
             ),
             className="globe-wrap",
         ),
