@@ -90,19 +90,47 @@ def build_figure(view_mode: str = "globe", continent: str = "All") -> go.Figure:
             for c in grp
         ]
 
+        # ── Halo layer (outermost glow) ──────────────────────────────────
+        fig.add_trace(
+            go.Scattergeo(
+                lat=lats, lon=lons,
+                mode="markers",
+                marker=dict(
+                    size=[s * 3.4 for s in sizes],
+                    color=color,
+                    opacity=0.09,
+                    line=dict(width=0),
+                ),
+                hoverinfo="skip",
+                showlegend=False,
+            )
+        )
+        # ── Mid glow layer ────────────────────────────────────────────────
+        fig.add_trace(
+            go.Scattergeo(
+                lat=lats, lon=lons,
+                mode="markers",
+                marker=dict(
+                    size=[s * 1.9 for s in sizes],
+                    color=color,
+                    opacity=0.22,
+                    line=dict(width=0),
+                ),
+                hoverinfo="skip",
+                showlegend=False,
+            )
+        )
+        # ── Core (interactive) ────────────────────────────────────────────
         fig.add_trace(
             go.Scattergeo(
                 lat=lats,
                 lon=lons,
-                mode="markers+text",
-                text=[c["name"] for c in grp],
-                textposition="top center",
-                textfont=dict(color=color, size=9, family="Exo 2"),
+                mode="markers",
                 marker=dict(
                     size=sizes,
                     color=color,
-                    opacity=0.93,
-                    line=dict(color="rgba(255,255,255,0.55)", width=1.5),
+                    opacity=0.95,
+                    line=dict(color="rgba(255,255,255,0.6)", width=1.5),
                 ),
                 name=CONTINENT_EMOJIS.get(cont, "") + "  " + cont,
                 hovertext=hover,
@@ -118,14 +146,14 @@ def build_figure(view_mode: str = "globe", continent: str = "All") -> go.Figure:
             )
         )
 
-    # ── Globe colours — Earth from space palette ───────────────────────────
+    # ── Globe colours — dark satellite night view ──────────────────────────
     geo = dict(
-        showland=True,        landcolor="#1a3d1a",
-        showocean=True,       oceancolor="#0a1f3d",
-        showcountries=True,   countrycolor="#234d23",  countrywidth=0.4,
-        showcoastlines=True,  coastlinecolor="#2a5e2a", coastlinewidth=0.6,
-        showlakes=True,       lakecolor="#0a1f3d",
-        showrivers=True,      rivercolor="#0a1f3d",     riverwidth=0.3,
+        showland=True,        landcolor="#0e1f30",
+        showocean=True,       oceancolor="#050e1e",
+        showcountries=True,   countrycolor="#1a3248",  countrywidth=0.5,
+        showcoastlines=True,  coastlinecolor="#1e3a52", coastlinewidth=0.8,
+        showlakes=True,       lakecolor="#050e1e",
+        showrivers=False,
         bgcolor="#020d18",
         showframe=False,
         resolution=50,
