@@ -294,19 +294,13 @@ html, body {
   height: 100% !important;
 }
 
-/* Atmospheric glow: kept subtle, behind the SVG via z-index */
+/* Atmospheric glow removed — transparent ocean already merges globe with background */
 .globe-wrap::after {
   content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background: radial-gradient(
-    ellipse 55% 55% at 50% 50%,
-    transparent 44%,
-    rgba(20, 80, 200, 0.05) 70%,
-    rgba(5, 20, 80, 0.12) 100%
-  );
 }
 
 /* Plotly SVG must sit above the ::after overlay */

@@ -115,15 +115,15 @@ def build_figure(view_mode: str = "globe", continent: str = "All") -> go.Figure:
             )
         )
 
-    # ── Globe colours — blends seamlessly with space background (#020d18) ──
+    # ── Globe colours — fully transparent ocean so CSS starfield shows through ──
     geo = dict(
-        showland=True,        landcolor="#0c1e2e",   # barely-visible dark land shapes
-        showocean=True,       oceancolor="#020d18",  # same as CSS --bg → ocean = space
+        showland=True,        landcolor="#0c1e2e",
+        showocean=True,       oceancolor="rgba(0,0,0,0)",  # transparent → stars visible
         showcountries=True,   countrycolor="#1c3a54",  countrywidth=0.6,
         showcoastlines=True,  coastlinecolor="#1e3f5c", coastlinewidth=0.8,
-        showlakes=True,       lakecolor="#020d18",   # same as ocean
-        showrivers=True,      rivercolor="#020d18",  riverwidth=0.4,
-        bgcolor="#020d18",    # geo background = space background
+        showlakes=True,       lakecolor="rgba(0,0,0,0)",
+        showrivers=False,
+        bgcolor="rgba(0,0,0,0)",   # transparent → no solid rect outside sphere
         showframe=False,
         resolution=50,
     )
