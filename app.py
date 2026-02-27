@@ -140,8 +140,8 @@ def build_figure(view_mode: str = "globe", continent: str = "All") -> go.Figure:
         )
 
     fig.update_layout(
-        paper_bgcolor="rgba(0,0,0,0)",
-        plot_bgcolor="rgba(0,0,0,0)",
+        paper_bgcolor="#060f1e",
+        plot_bgcolor="#060f1e",
         geo=geo,
         legend=dict(
             x=0.01, y=0.99, xanchor="left", yanchor="top",
@@ -153,8 +153,7 @@ def build_figure(view_mode: str = "globe", continent: str = "All") -> go.Figure:
             tracegroupgap=3,
         ),
         margin=dict(l=0, r=0, t=0, b=0),
-        height=650,       # explicit fallback so Plotly renders immediately
-        autosize=True,    # overrides height once container is measured
+        height=650,
         uirevision=view_mode,
     )
     return fig
@@ -534,8 +533,7 @@ app.layout = html.Div(
                         "height": 900, "width": 1400, "scale": 2,
                     },
                 },
-                style={"height": "calc(100vh - 130px)", "width": "100%"},
-                responsive=True,
+                style={"height": "650px", "width": "100%"},
             ),
             className="globe-wrap",
         ),
