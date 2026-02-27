@@ -146,14 +146,40 @@ def build_figure(view_mode: str = "globe", continent: str = "All") -> go.Figure:
             )
         )
 
-    # ── Globe colours — dark satellite night view ──────────────────────────
+    # ── Continent labels ────────────────────────────────────────────────────
+    CONT_CENTERS = {
+        "Africa":        (  5,  22),
+        "Asia":          ( 38,  95),
+        "Europe":        ( 56,  14),
+        "N. America":    ( 50,-100),
+        "S. America":    (-14, -58),
+        "Oceania":       (-24, 133),
+    }
+    fig.add_trace(
+        go.Scattergeo(
+            lat=[v[0] for v in CONT_CENTERS.values()],
+            lon=[v[1] for v in CONT_CENTERS.values()],
+            mode="text",
+            text=list(CONT_CENTERS.keys()),
+            textfont=dict(
+                color="rgba(160,200,240,0.55)",
+                size=11,
+                family="Orbitron, sans-serif",
+            ),
+            hoverinfo="skip",
+            showlegend=False,
+        )
+    )
+
+    # ── Globe colours ───────────────────────────────────────────────────────
     geo = dict(
-        showland=True,        landcolor="#0e1f30",
-        showocean=True,       oceancolor="#050e1e",
-        showcountries=True,   countrycolor="#1a3248",  countrywidth=0.5,
-        showcoastlines=True,  coastlinecolor="#1e3a52", coastlinewidth=0.8,
-        showlakes=True,       lakecolor="#050e1e",
-        showrivers=False,
+        showland=True,        landcolor="#183d18",
+        showocean=True,       oceancolor="#0a2452",
+        showcountries=True,   countrycolor="#2a6a2a",  countrywidth=0.7,
+        showcoastlines=True,  coastlinecolor="#30783c", coastlinewidth=1.0,
+        showlakes=True,       lakecolor="#0a2452",
+        showrivers=True,      rivercolor="#0a2452",    riverwidth=0.4,
+        showsubunits=True,    subunitcolor="#1a3550",  subunitwidth=0.3,
         bgcolor="#020d18",
         showframe=False,
         resolution=50,
