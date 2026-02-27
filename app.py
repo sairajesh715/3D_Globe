@@ -115,15 +115,15 @@ def build_figure(view_mode: str = "globe", continent: str = "All") -> go.Figure:
             )
         )
 
-    # ── Globe colours (vivid enough to be clearly visible) ────────────────
+    # ── Globe colours — blends seamlessly with space background (#020d18) ──
     geo = dict(
-        showland=True,        landcolor="#2a7a1e",
-        showocean=True,       oceancolor="#1060a0",
-        showcountries=True,   countrycolor="#55aa30",  countrywidth=0.6,
-        showcoastlines=True,  coastlinecolor="#66cc44", coastlinewidth=1.0,
-        showlakes=True,       lakecolor="#1a72c0",
-        showrivers=True,      rivercolor="#1a72c0",     riverwidth=0.5,
-        bgcolor="#0a1828",
+        showland=True,        landcolor="#0c1e2e",   # barely-visible dark land shapes
+        showocean=True,       oceancolor="#020d18",  # same as CSS --bg → ocean = space
+        showcountries=True,   countrycolor="#1c3a54",  countrywidth=0.6,
+        showcoastlines=True,  coastlinecolor="#1e3f5c", coastlinewidth=0.8,
+        showlakes=True,       lakecolor="#020d18",   # same as ocean
+        showrivers=True,      rivercolor="#020d18",  riverwidth=0.4,
+        bgcolor="#020d18",    # geo background = space background
         showframe=False,
         resolution=50,
     )
@@ -140,8 +140,8 @@ def build_figure(view_mode: str = "globe", continent: str = "All") -> go.Figure:
         )
 
     fig.update_layout(
-        paper_bgcolor="#060f1e",
-        plot_bgcolor="#060f1e",
+        paper_bgcolor="rgba(0,0,0,0)",   # transparent → CSS starfield shows through
+        plot_bgcolor="rgba(0,0,0,0)",
         geo=geo,
         legend=dict(
             x=0.01, y=0.99, xanchor="left", yanchor="top",
