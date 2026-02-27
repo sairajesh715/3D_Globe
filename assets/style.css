@@ -48,35 +48,35 @@ html, body {
   color: var(--text-1);
   background-color: var(--bg);
   background-image:
-    /* Soft blurry stars — gradual fade gives a glowing/blurred appearance */
-    radial-gradient(circle at  4%  8%, rgba(255,255,255,0.90) 0, rgba(255,255,255,0.25) 1.2px, transparent 3.5px),
-    radial-gradient(circle at 12% 22%, rgba(255,255,255,0.70) 0, rgba(255,255,255,0.18) 1.0px, transparent 3.0px),
-    radial-gradient(circle at 23%  5%, rgba(255,255,255,0.95) 0, rgba(255,255,255,0.30) 1.4px, transparent 4.0px),
-    radial-gradient(circle at 34% 16%, rgba(255,255,255,0.65) 0, rgba(255,255,255,0.16) 1.0px, transparent 2.8px),
-    radial-gradient(circle at 44% 32%, rgba(255,255,255,0.85) 0, rgba(255,255,255,0.22) 1.2px, transparent 3.5px),
-    radial-gradient(circle at 55%  9%, rgba(255,255,255,0.75) 0, rgba(255,255,255,0.20) 1.1px, transparent 3.0px),
-    radial-gradient(circle at 64% 25%, rgba(255,255,255,0.90) 0, rgba(255,255,255,0.28) 1.3px, transparent 3.8px),
-    radial-gradient(circle at 73% 14%, rgba(255,255,255,0.65) 0, rgba(255,255,255,0.16) 1.0px, transparent 2.8px),
-    radial-gradient(circle at 82% 38%, rgba(255,255,255,0.80) 0, rgba(255,255,255,0.22) 1.2px, transparent 3.5px),
-    radial-gradient(circle at 91% 11%, rgba(255,255,255,0.85) 0, rgba(255,255,255,0.24) 1.2px, transparent 3.5px),
-    radial-gradient(circle at  7% 62%, rgba(255,255,255,0.65) 0, rgba(255,255,255,0.16) 1.0px, transparent 2.8px),
-    radial-gradient(circle at 18% 78%, rgba(255,255,255,0.88) 0, rgba(255,255,255,0.26) 1.3px, transparent 3.8px),
-    radial-gradient(circle at 29% 91%, rgba(255,255,255,0.70) 0, rgba(255,255,255,0.18) 1.1px, transparent 3.0px),
-    radial-gradient(circle at 47% 55%, rgba(255,255,255,0.85) 0, rgba(255,255,255,0.24) 1.2px, transparent 3.5px),
-    radial-gradient(circle at 58% 72%, rgba(255,255,255,0.80) 0, rgba(255,255,255,0.20) 1.1px, transparent 3.2px),
-    radial-gradient(circle at 69% 88%, rgba(255,255,255,0.75) 0, rgba(255,255,255,0.20) 1.2px, transparent 3.5px),
-    radial-gradient(circle at 77% 65%, rgba(255,255,255,0.90) 0, rgba(255,255,255,0.26) 1.3px, transparent 3.8px),
-    radial-gradient(circle at 88% 82%, rgba(255,255,255,0.65) 0, rgba(255,255,255,0.16) 1.0px, transparent 2.8px),
-    radial-gradient(circle at 96% 48%, rgba(255,255,255,0.85) 0, rgba(255,255,255,0.22) 1.2px, transparent 3.5px),
-    radial-gradient(circle at  2% 44%, rgba(255,255,255,0.75) 0, rgba(255,255,255,0.20) 1.1px, transparent 3.2px),
-    radial-gradient(circle at 38% 70%, rgba(255,255,255,0.70) 0, rgba(255,255,255,0.18) 1.0px, transparent 3.0px),
-    radial-gradient(circle at 51% 40%, rgba(255,255,255,0.60) 0, rgba(255,255,255,0.14) 0.9px, transparent 2.5px),
-    radial-gradient(circle at 85% 55%, rgba(255,255,255,0.80) 0, rgba(255,255,255,0.22) 1.2px, transparent 3.5px),
-    radial-gradient(circle at 16% 48%, rgba(255,255,255,0.70) 0, rgba(255,255,255,0.18) 1.0px, transparent 3.0px),
-    /* Nebula glows — wider, softer */
-    radial-gradient(ellipse at 15% 15%, rgba(10, 60, 160, 0.22) 0%, rgba(5,30,100,0.10) 30%, transparent 55%),
-    radial-gradient(ellipse at 85% 80%, rgba(70,  0, 130, 0.18) 0%, rgba(40,0,80,0.08) 28%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(0,  30,  90, 0.12) 0%, transparent 60%);
+    /* Stars — small white dots at random positions */
+    radial-gradient(circle at  4%  8%, rgba(255,255,255,0.75) 0.6px, transparent 0.6px),
+    radial-gradient(circle at 12% 22%, rgba(255,255,255,0.55) 0.5px, transparent 0.5px),
+    radial-gradient(circle at 23%  5%, rgba(255,255,255,0.80) 0.6px, transparent 0.6px),
+    radial-gradient(circle at 34% 16%, rgba(255,255,255,0.50) 0.5px, transparent 0.5px),
+    radial-gradient(circle at 44% 32%, rgba(255,255,255,0.70) 0.6px, transparent 0.6px),
+    radial-gradient(circle at 55%  9%, rgba(255,255,255,0.60) 0.5px, transparent 0.5px),
+    radial-gradient(circle at 64% 25%, rgba(255,255,255,0.75) 0.6px, transparent 0.6px),
+    radial-gradient(circle at 73% 14%, rgba(255,255,255,0.50) 0.5px, transparent 0.5px),
+    radial-gradient(circle at 82% 38%, rgba(255,255,255,0.65) 0.6px, transparent 0.6px),
+    radial-gradient(circle at 91% 11%, rgba(255,255,255,0.70) 0.5px, transparent 0.5px),
+    radial-gradient(circle at  7% 62%, rgba(255,255,255,0.50) 0.5px, transparent 0.5px),
+    radial-gradient(circle at 18% 78%, rgba(255,255,255,0.75) 0.6px, transparent 0.6px),
+    radial-gradient(circle at 29% 91%, rgba(255,255,255,0.55) 0.5px, transparent 0.5px),
+    radial-gradient(circle at 47% 55%, rgba(255,255,255,0.70) 0.6px, transparent 0.6px),
+    radial-gradient(circle at 58% 72%, rgba(255,255,255,0.65) 0.5px, transparent 0.5px),
+    radial-gradient(circle at 69% 88%, rgba(255,255,255,0.60) 0.6px, transparent 0.6px),
+    radial-gradient(circle at 77% 65%, rgba(255,255,255,0.75) 0.5px, transparent 0.5px),
+    radial-gradient(circle at 88% 82%, rgba(255,255,255,0.50) 0.6px, transparent 0.6px),
+    radial-gradient(circle at 96% 48%, rgba(255,255,255,0.70) 0.5px, transparent 0.5px),
+    radial-gradient(circle at  2% 44%, rgba(255,255,255,0.60) 0.6px, transparent 0.6px),
+    radial-gradient(circle at 38% 70%, rgba(255,255,255,0.55) 0.5px, transparent 0.5px),
+    radial-gradient(circle at 51% 40%, rgba(255,255,255,0.45) 0.5px, transparent 0.5px),
+    radial-gradient(circle at 85% 55%, rgba(255,255,255,0.65) 0.6px, transparent 0.6px),
+    radial-gradient(circle at 16% 48%, rgba(255,255,255,0.55) 0.5px, transparent 0.5px),
+    /* Nebula glows */
+    radial-gradient(ellipse at 15% 15%, rgba(0, 50, 130, 0.18) 0%, transparent 40%),
+    radial-gradient(ellipse at 85% 80%, rgba(60,  0, 110, 0.14) 0%, transparent 35%),
+    radial-gradient(ellipse at 50% 50%, rgba(0,  20,  60, 0.10) 0%, transparent 55%);
 }
 
 /* ─── Header ─────────────────────────────────────────────────────────────── */
@@ -294,28 +294,22 @@ html, body {
   height: 100% !important;
 }
 
-/* Atmospheric limb glow — sits ABOVE the SVG, pointer-events:none so clicks pass through */
+/* Atmospheric glow: kept subtle, behind the SVG via z-index */
 .globe-wrap::after {
   content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 2;
+  z-index: 0;
   background: radial-gradient(
-    ellipse 50% 50% at 50% 50%,
-    transparent 36%,
-    rgba(20,  80, 255, 0.03) 50%,
-    rgba(15,  65, 220, 0.09) 60%,
-    rgba(10,  45, 180, 0.18) 68%,
-    rgba(5,   25, 100, 0.38) 76%,
-    rgba(2,   13,  30, 0.78) 85%,
-    rgba(2,   13,  24, 1.00) 100%
+    ellipse 55% 55% at 50% 50%,
+    transparent 44%,
+    rgba(20, 80, 200, 0.05) 70%,
+    rgba(5, 20, 80, 0.12) 100%
   );
-  /* Extra soft outer blur to blend atmosphere edges */
-  filter: blur(2px);
 }
 
-/* Plotly SVG sits at z-index 1 (below atmospheric overlay) */
+/* Plotly SVG must sit above the ::after overlay */
 .globe-wrap .dash-graph,
 .globe-wrap .js-plotly-plot {
   position: relative;
@@ -334,246 +328,280 @@ html, body {
 .js-plotly-plot .plotly .modebar-btn:hover path { fill: var(--accent) !important; }
 .js-plotly-plot .plotly .modebar-btn.active path { fill: var(--accent) !important; }
 
-/* ─── City Popup — compact inline card inside .globe-wrap ───────────────── */
-
-/* Outer wrapper: absolute over the globe, top-right */
-.city-popup {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  width: 360px;
-  max-height: calc(100% - 28px);
-  z-index: 50;
+/* ─── City Detail Modal ──────────────────────────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
   display: flex;
-  flex-direction: column;
-  transition: opacity 0.26s ease, visibility 0.26s ease, transform 0.26s ease;
+  align-items: flex-start;
+  justify-content: center;
+  background: rgba(1, 6, 16, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  overflow-y: auto;
+  padding: 20px 16px 40px;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
-.city-popup.hidden {
+.modal-overlay.hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translateX(18px);
 }
-.city-popup.visible {
+.modal-overlay.visible {
   opacity: 1;
   visibility: visible;
   pointer-events: all;
-  transform: translateX(0);
 }
 
-/* Popup card shell */
-.city-popup > div {
-  background: linear-gradient(170deg, rgba(4,14,32,0.97) 0%, rgba(6,18,42,0.97) 100%);
+.modal-card {
+  width: 100%;
+  max-width: 1080px;
+  background: linear-gradient(170deg, rgba(4,16,36,0.99) 0%, rgba(6,20,44,0.99) 100%);
   border: 1px solid var(--border);
-  border-radius: 16px;
-  box-shadow: 0 16px 60px rgba(0,0,0,0.75), 0 0 0 1px rgba(0,210,255,0.06);
+  border-radius: 20px;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  max-height: calc(100vh - var(--header-h) - var(--controls-h) - 28px);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(0,210,255,0.08);
+  animation: modal-rise 0.4s cubic-bezier(0.4,0,0.2,1) both;
+}
+@keyframes modal-rise {
+  from { opacity: 0; transform: translateY(30px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);    }
 }
 
-/* Static top-bar (always in DOM) */
-.popup-topbar {
-  flex-shrink: 0;
+/* Modal top bar */
+.modal-topbar {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 9px 12px;
+  gap: 12px;
+  padding: 14px 20px;
   background: rgba(0,0,0,0.25);
   border-bottom: 1px solid var(--border-2);
 }
 
-.popup-close-btn {
-  flex-shrink: 0;
-  width: 24px; height: 24px;
-  border: 1px solid var(--border-2);
-  border-radius: 50%;
-  background: rgba(0,0,0,0.35);
-  color: var(--text-3);
-  font-size: 11px;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: all 0.18s;
-  padding: 0;
-  font-family: var(--font-body);
-}
-.popup-close-btn:hover {
-  color: var(--text-1);
-  border-color: var(--border);
-  background: rgba(255,60,60,0.15);
-}
-
-.popup-topbar-label {
-  flex: 1;
-  font-size: 12px;
-  font-weight: 600;
+.back-btn {
+  padding: 7px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--pill);
+  background: rgba(0,0,0,0.3);
   color: var(--text-2);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   font-family: var(--font-body);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.back-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(0,210,255,0.08);
 }
 
 .export-city-btn {
-  flex-shrink: 0;
-  padding: 5px 11px;
+  margin-left: auto;
+  padding: 7px 18px;
   border: 1px solid rgba(46,213,115,0.4);
   border-radius: var(--pill);
-  background: rgba(46,213,115,0.09);
+  background: rgba(46,213,115,0.1);
   color: #2ed573;
   font-family: var(--font-body);
-  font-size: 11px;
+  font-size: 12.5px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
-  white-space: nowrap;
 }
 .export-city-btn:hover {
   background: rgba(46,213,115,0.2);
-  box-shadow: 0 0 10px rgba(46,213,115,0.2);
+  box-shadow: 0 0 14px rgba(46,213,115,0.25);
 }
 
-/* Scrollable city detail area */
-.popup-body {
-  overflow-y: auto;
-  overflow-x: hidden;
-  flex: 1;
-}
-.popup-body::-webkit-scrollbar { width: 3px; }
-.popup-body::-webkit-scrollbar-track { background: transparent; }
-.popup-body::-webkit-scrollbar-thumb { background: rgba(0,210,255,0.2); border-radius: 2px; }
+/* Modal body scroll */
+.modal-body { overflow-x: hidden; }
 
-/* Inner content padding */
-.popup-content { padding: 12px 14px 16px; }
+.modal-content-inner { padding: 28px 28px 36px; }
 
-/* Hero row */
-.popup-hero {
+/* Modal hero */
+.modal-hero {
   display: flex;
-  align-items: center;
-  gap: 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid;
-  margin-bottom: 10px;
+  align-items: flex-start;
+  gap: 18px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid;
+  margin-bottom: 18px;
+  animation: fadeUp 0.4s ease both;
 }
-.popup-flag        { font-size: 30px; flex-shrink: 0; line-height: 1; }
-.popup-title-block { flex: 1; min-width: 0; }
-.popup-city-name {
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-flag {
+  font-size: 56px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.hero-city {
   font-family: var(--font-display);
-  font-size: 15px; font-weight: 700;
-  color: var(--text-1); letter-spacing: 0.3px;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  margin-bottom: 2px;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-1);
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  margin-bottom: 7px;
 }
-.popup-meta      { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
-.popup-country   { font-size: 11px; color: var(--text-2); }
-.popup-sep       { color: var(--text-3); font-size: 11px; }
-.popup-continent { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+
+.hero-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.hero-country  { font-size: 14px; color: var(--text-2); }
+.hero-dot      { color: var(--text-3); }
+.hero-continent {
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 0.6px; text-transform: uppercase;
+}
 
 /* Description */
-.popup-desc {
-  font-size: 11.5px;
-  line-height: 1.65;
+.modal-desc {
+  font-size: 13.5px;
+  line-height: 1.75;
   color: var(--text-2);
-  margin-bottom: 10px;
+  margin-bottom: 16px;
+  animation: fadeUp 0.45s ease 0.05s both;
 }
 
+/* Tags */
+.tags-row {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin-bottom: 18px;
+  animation: fadeUp 0.45s ease 0.08s both;
+}
+.tag {
+  font-size: 11px;
+  padding: 4px 11px;
+  border-radius: var(--pill);
+  border: 1px solid;
+  color: var(--text-2);
+  background: rgba(0,0,0,0.25);
+  transition: all 0.15s;
+}
+.tag:hover { color: var(--text-1); }
+
 /* Population bar */
-.popup-pop-section  { margin-bottom: 10px; }
-.popup-bar-row      { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
-.popup-bar-label    { font-size: 9px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.7px; }
-.popup-bar-number   { font-family: var(--font-display); font-size: 12px; font-weight: 700; }
-.popup-pop-bar {
-  width: 100%; height: 5px;
-  background: rgba(0,0,0,0.4); border-radius: 3px; overflow: hidden;
+.pop-section { margin-bottom: 18px; animation: fadeUp 0.45s ease 0.1s both; }
+.bar-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+.bar-label  { font-size: 10px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.8px; }
+.bar-number { font-family: var(--font-display); font-size: 14px; font-weight: 700; }
+.pop-bar {
+  width: 100%; height: 7px;
+  background: rgba(0,0,0,0.4);
+  border-radius: 4px; overflow: hidden;
   border: 1px solid var(--border-2);
 }
 
-/* 2×2 chip grid */
-.popup-chips {
+/* Stats chips */
+.modal-stats {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6px;
-  margin-bottom: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 9px;
+  margin-bottom: 24px;
+  animation: fadeUp 0.45s ease 0.12s both;
 }
-
-/* Reuse existing .stat-chip family */
 .stat-chip {
-  display: flex; align-items: center; gap: 8px;
+  display: flex; align-items: center; gap: 10px;
   background: rgba(0,0,0,0.28);
   border: 1px solid var(--border-2);
   border-radius: var(--radius);
-  padding: 8px 10px;
+  padding: 10px 13px;
   transition: all 0.2s;
 }
-.stat-chip:hover { border-color: var(--border); background: rgba(0,210,255,0.05); }
-.chip-icon  { font-size: 16px; flex-shrink: 0; }
+.stat-chip:hover {
+  border-color: var(--border);
+  background: rgba(0,210,255,0.05);
+}
+.chip-icon  { font-size: 18px; flex-shrink: 0; }
 .chip-text  { display: flex; flex-direction: column; min-width: 0; }
-.chip-label { font-size: 9px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.7px; }
-.chip-value { font-size: 11.5px; color: var(--text-1); font-weight: 600;
+.chip-label { font-size: 9.5px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.7px; }
+.chip-value { font-size: 12.5px; color: var(--text-1); font-weight: 600;
               white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-/* Attraction chart */
-.popup-chart { margin-bottom: 10px; }
-
-/* Top attractions */
-.popup-attractions { margin-bottom: 8px; }
-.popup-sec-label {
-  font-size: 9.5px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.8px;
-  margin-bottom: 6px;
+/* Charts row */
+.charts-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+  animation: fadeUp 0.45s ease 0.15s both;
 }
-.popup-attr-list { list-style: none; display: flex; flex-direction: column; gap: 5px; }
-.popup-attr-item {
-  font-size: 11.5px; color: var(--text-2);
-  display: flex; align-items: flex-start; gap: 5px;
-  line-height: 1.4; transition: color 0.15s;
+.chart-box {
+  background: rgba(0,0,0,0.22);
+  border: 1px solid var(--border-2);
+  border-radius: var(--radius);
+  padding: 14px 14px 10px;
+  overflow: hidden;
 }
-.popup-attr-item:hover { color: var(--text-1); }
-
-/* Fun fact */
-.popup-fun-fact {
+.chart-title {
   font-size: 11px;
-  line-height: 1.6;
   color: var(--text-3);
-  font-style: italic;
-  padding: 7px 10px;
-  background: rgba(0,0,0,0.2);
-  border-radius: 8px;
-  border-left: 2px solid rgba(0,210,255,0.25);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 4px;
+  display: none; /* title comes from Plotly layout */
 }
 
-/* Animation for popup-content appearance */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
+/* Sections */
+.modal-section {
+  margin-bottom: 22px;
+  animation: fadeUp 0.45s ease 0.18s both;
 }
-.popup-content { animation: fadeUp 0.25s ease both; }
+.sec-title {
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 0.8px; text-transform: uppercase;
+  margin-bottom: 12px;
+  display: flex; align-items: center;
+}
+.sec-icon { font-size: 14px; margin-right: 6px; }
+
+.attr-list  { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.attr-item  {
+  font-size: 13px; color: var(--text-2);
+  display: flex; align-items: flex-start; gap: 6px;
+  line-height: 1.5; transition: color 0.15s;
+}
+.attr-item:hover { color: var(--text-1); }
+
+.facts-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.fact-item  {
+  font-size: 13px; color: var(--text-2);
+  padding-left: 16px; position: relative; line-height: 1.65;
+}
+.fact-item::before {
+  content: '›';
+  position: absolute; left: 0;
+  color: var(--accent); font-size: 16px; line-height: 1.3;
+}
 
 /* ─── Responsive ─────────────────────────────────────────────────────────── */
 @media (max-width: 860px) {
-  .app-title    { font-size: 15px; letter-spacing: 0.5px; }
+  .app-title   { font-size: 15px; letter-spacing: 0.5px; }
   .app-subtitle { display: none; }
   .header-stats { display: none; }
 
   .controls-bar { height: auto; padding: 7px 12px; flex-wrap: wrap; }
 
-  /* On mobile, popup slides up from bottom */
-  .city-popup {
-    top: auto;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    width: 100%;
-    max-height: 58vh;
-    border-radius: 0;
-    transform: none !important;
-  }
-  .city-popup.hidden  { transform: translateY(30px) !important; }
-  .city-popup.visible { transform: translateY(0) !important; }
-  .city-popup > div   { border-radius: 16px 16px 0 0; max-height: 58vh; }
+  .modal-stats  { grid-template-columns: 1fr 1fr; }
+  .charts-row   { grid-template-columns: 1fr; }
+
+  .hero-city { font-size: 20px; }
+  .hero-flag { font-size: 42px; }
 }
 
 @media (max-width: 520px) {
-  .popup-chips { grid-template-columns: 1fr; }
+  .modal-card { border-radius: 14px; }
+  .modal-content-inner { padding: 18px 16px 28px; }
+  .modal-stats { grid-template-columns: 1fr; }
+  .hero-city { font-size: 17px; }
 }

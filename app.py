@@ -90,37 +90,6 @@ def build_figure(view_mode: str = "globe", continent: str = "All") -> go.Figure:
             for c in grp
         ]
 
-        # ── Halo layer (outermost glow) ──────────────────────────────────
-        fig.add_trace(
-            go.Scattergeo(
-                lat=lats, lon=lons,
-                mode="markers",
-                marker=dict(
-                    size=[s * 3.4 for s in sizes],
-                    color=color,
-                    opacity=0.09,
-                    line=dict(width=0),
-                ),
-                hoverinfo="skip",
-                showlegend=False,
-            )
-        )
-        # ── Mid glow layer ────────────────────────────────────────────────
-        fig.add_trace(
-            go.Scattergeo(
-                lat=lats, lon=lons,
-                mode="markers",
-                marker=dict(
-                    size=[s * 1.9 for s in sizes],
-                    color=color,
-                    opacity=0.22,
-                    line=dict(width=0),
-                ),
-                hoverinfo="skip",
-                showlegend=False,
-            )
-        )
-        # ── Core (interactive) ────────────────────────────────────────────
         fig.add_trace(
             go.Scattergeo(
                 lat=lats,
@@ -129,8 +98,8 @@ def build_figure(view_mode: str = "globe", continent: str = "All") -> go.Figure:
                 marker=dict(
                     size=sizes,
                     color=color,
-                    opacity=0.95,
-                    line=dict(color="rgba(255,255,255,0.6)", width=1.5),
+                    opacity=0.93,
+                    line=dict(color="rgba(255,255,255,0.55)", width=1.5),
                 ),
                 name=CONTINENT_EMOJIS.get(cont, "") + "  " + cont,
                 hovertext=hover,
@@ -146,41 +115,15 @@ def build_figure(view_mode: str = "globe", continent: str = "All") -> go.Figure:
             )
         )
 
-    # ── Continent labels ────────────────────────────────────────────────────
-    CONT_CENTERS = {
-        "Africa":        (  5,  22),
-        "Asia":          ( 38,  95),
-        "Europe":        ( 56,  14),
-        "N. America":    ( 50,-100),
-        "S. America":    (-14, -58),
-        "Oceania":       (-24, 133),
-    }
-    fig.add_trace(
-        go.Scattergeo(
-            lat=[v[0] for v in CONT_CENTERS.values()],
-            lon=[v[1] for v in CONT_CENTERS.values()],
-            mode="text",
-            text=list(CONT_CENTERS.keys()),
-            textfont=dict(
-                color="rgba(160,200,240,0.55)",
-                size=11,
-                family="Orbitron, sans-serif",
-            ),
-            hoverinfo="skip",
-            showlegend=False,
-        )
-    )
-
-    # ── Globe colours ───────────────────────────────────────────────────────
+    # ── Globe colours (vivid enough to be clearly visible) ────────────────
     geo = dict(
-        showland=True,        landcolor="#183d18",
-        showocean=True,       oceancolor="#0a2452",
-        showcountries=True,   countrycolor="#2a6a2a",  countrywidth=0.7,
-        showcoastlines=True,  coastlinecolor="#30783c", coastlinewidth=1.0,
-        showlakes=True,       lakecolor="#0a2452",
-        showrivers=True,      rivercolor="#0a2452",    riverwidth=0.4,
-        showsubunits=True,    subunitcolor="#1a3550",  subunitwidth=0.3,
-        bgcolor="#020d18",
+        showland=True,        landcolor="#2a7a1e",
+        showocean=True,       oceancolor="#1060a0",
+        showcountries=True,   countrycolor="#55aa30",  countrywidth=0.6,
+        showcoastlines=True,  coastlinecolor="#66cc44", coastlinewidth=1.0,
+        showlakes=True,       lakecolor="#1a72c0",
+        showrivers=True,      rivercolor="#1a72c0",     riverwidth=0.5,
+        bgcolor="#0a1828",
         showframe=False,
         resolution=50,
     )
@@ -197,8 +140,8 @@ def build_figure(view_mode: str = "globe", continent: str = "All") -> go.Figure:
         )
 
     fig.update_layout(
-        paper_bgcolor="rgba(0,0,0,0)",
-        plot_bgcolor="rgba(0,0,0,0)",
+        paper_bgcolor="#060f1e",
+        plot_bgcolor="#060f1e",
         geo=geo,
         legend=dict(
             x=0.01, y=0.99, xanchor="left", yanchor="top",
@@ -499,114 +442,6 @@ def build_modal_body(city: dict) -> html.Div:
     )
 
 
-def build_popup_body(city: dict) -> html.Div:
-    """Compact city detail card rendered inside the inline popup."""
-    color = CONTINENT_COLORS.get(city["continent"], "#00d2ff")
-    pop_pct = min(100, city["population"] / 22_000_000 * 100)
-    fun_fact = (city.get("fun_facts") or [""])[0]
-
-    return html.Div(
-        [
-            # ── Hero ────────────────────────────────────────────────────────
-            html.Div(
-                [
-                    html.Span(city["flag"], className="popup-flag",
-                              style={"filter": f"drop-shadow(0 0 8px {color})"}),
-                    html.Div(
-                        [
-                            html.Div(city["name"], className="popup-city-name"),
-                            html.Div(
-                                [
-                                    html.Span(city["country"], className="popup-country"),
-                                    html.Span(" · ", className="popup-sep"),
-                                    html.Span(city["continent"], className="popup-continent",
-                                              style={"color": color}),
-                                ],
-                                className="popup-meta",
-                            ),
-                        ],
-                        className="popup-title-block",
-                    ),
-                ],
-                className="popup-hero",
-                style={"borderBottomColor": color + "44"},
-            ),
-
-            # ── Description ─────────────────────────────────────────────────
-            html.P(
-                city["description"][:160] + ("…" if len(city["description"]) > 160 else ""),
-                className="popup-desc",
-            ),
-
-            # ── Population bar ───────────────────────────────────────────────
-            html.Div(
-                [
-                    html.Div(
-                        [
-                            html.Span("Population", className="popup-bar-label"),
-                            html.Span(f"{city['population']:,}", className="popup-bar-number",
-                                      style={"color": color}),
-                        ],
-                        className="popup-bar-row",
-                    ),
-                    html.Div(
-                        html.Div(style={
-                            "width": f"{pop_pct:.0f}%", "height": "100%",
-                            "background": f"linear-gradient(90deg,{color}cc,{color}44)",
-                            "borderRadius": "3px",
-                        }),
-                        className="popup-pop-bar",
-                    ),
-                ],
-                className="popup-pop-section",
-            ),
-
-            # ── 2×2 stat chips ───────────────────────────────────────────────
-            html.Div(
-                [
-                    stat_chip("🗣", "Language",  city["language"]),
-                    stat_chip("💱", "Currency",  city["currency"]),
-                    stat_chip("🕐", "Timezone",  city["timezone"]),
-                    stat_chip("📅", "Founded",   city.get("founded", "Ancient")),
-                ],
-                className="popup-chips",
-            ),
-
-            # ── Attraction chart ─────────────────────────────────────────────
-            html.Div(
-                dcc.Graph(
-                    figure=build_attraction_chart(city),
-                    config={"displayModeBar": False},
-                    style={"height": "180px"},
-                ),
-                className="popup-chart",
-            ),
-
-            # ── Top 3 attractions ────────────────────────────────────────────
-            html.Div(
-                [
-                    html.Div("Top Attractions", className="popup-sec-label",
-                             style={"color": color}),
-                    html.Ul(
-                        [html.Li([html.Span("✦  ", style={"color": color}), a],
-                                 className="popup-attr-item")
-                         for a in city["top_attractions"][:3]],
-                        className="popup-attr-list",
-                    ),
-                ],
-                className="popup-attractions",
-            ),
-
-            # ── Fun fact ─────────────────────────────────────────────────────
-            html.Div(
-                [html.Span("💡 ", style={"color": color}), fun_fact],
-                className="popup-fun-fact",
-            ) if fun_fact else html.Div(),
-        ],
-        className="popup-content",
-    )
-
-
 # ─── Layout ───────────────────────────────────────────────────────────────────
 
 CONTINENT_FILTER_OPTIONS = [
@@ -682,48 +517,47 @@ app.layout = html.Div(
             className="controls-bar",
         ),
 
-        # ── Globe + inline city popup ────────────────────────────────────────
+        # ── Globe ────────────────────────────────────────────────────────────
         html.Div(
-            [
-                dcc.Graph(
-                    id="globe",
-                    figure=build_figure(),
-                    responsive=True,
-                    config={
-                        "displayModeBar": True,
-                        "scrollZoom": True,
-                        "displaylogo": False,
-                        "modeBarButtonsToRemove": ["select2d", "lasso2d", "autoScale2d"],
-                        "toImageButtonOptions": {
-                            "format": "png", "filename": "world_globe",
-                            "height": 900, "width": 1400, "scale": 2,
-                        },
+            dcc.Graph(
+                id="globe",
+                figure=build_figure(),
+                responsive=True,
+                config={
+                    "displayModeBar": True,
+                    "scrollZoom": True,
+                    "displaylogo": False,
+                    "modeBarButtonsToRemove": ["select2d", "lasso2d", "autoScale2d"],
+                    "toImageButtonOptions": {
+                        "format": "png", "filename": "world_globe",
+                        "height": 900, "width": 1400, "scale": 2,
                     },
-                    style={"height": "100%", "width": "100%"},
-                ),
-                # Inline popup — absolute positioned within .globe-wrap
-                html.Div(
-                    [
-                        # Static top-bar: always in DOM so Dash can bind callbacks
-                        html.Div(
-                            [
-                                html.Button("✕", id="close-modal-btn",
-                                            className="popup-close-btn", n_clicks=0),
-                                html.Div(id="popup-city-label", className="popup-topbar-label"),
-                                html.Button("💾 Export CSV", id="export-city-btn",
-                                            className="export-city-btn", n_clicks=0),
-                                dcc.Download(id="download-city-csv"),
-                            ],
-                            className="popup-topbar",
-                        ),
-                        # Dynamic city detail content
-                        html.Div(id="modal-body", className="popup-body"),
-                    ],
-                    id="city-modal",
-                    className="city-popup hidden",
-                ),
-            ],
+                },
+                style={"height": "100%", "width": "100%"},
+            ),
             className="globe-wrap",
+        ),
+
+        # ── City Detail Modal ────────────────────────────────────────────────
+        html.Div(
+            html.Div(
+                [
+                    html.Div(
+                        [
+                            html.Button("← Back to Globe", id="close-modal-btn",
+                                        className="back-btn", n_clicks=0),
+                            html.Button("💾  Export City CSV", id="export-city-btn",
+                                        className="export-city-btn", n_clicks=0),
+                            dcc.Download(id="download-city-csv"),
+                        ],
+                        className="modal-topbar",
+                    ),
+                    html.Div(id="modal-body", className="modal-body"),
+                ],
+                className="modal-card",
+            ),
+            id="city-modal",
+            className="modal-overlay hidden",
         ),
 
         # ── Stores ───────────────────────────────────────────────────────────
@@ -763,25 +597,22 @@ def refresh_globe(view, continent):
 
 
 @app.callback(
-    Output("city-store",       "data"),
-    Output("city-modal",       "className"),
-    Output("popup-city-label", "children"),
-    Input("globe",             "clickData"),
-    Input("close-modal-btn",   "n_clicks"),
+    Output("city-store",   "data"),
+    Output("city-modal",   "className"),
+    Input("globe",         "clickData"),
+    Input("close-modal-btn", "n_clicks"),
     prevent_initial_call=True,
 )
 def handle_click(click_data, _close):
     if ctx.triggered_id == "close-modal-btn":
-        return no_update, "city-popup hidden", no_update
+        return no_update, "modal-overlay hidden"
 
     if ctx.triggered_id == "globe" and click_data:
         pts = click_data.get("points", [])
         if pts and "customdata" in pts[0]:
-            city = json.loads(pts[0]["customdata"])
-            label = f"{city.get('flag','')}  {city['name']}"
-            return pts[0]["customdata"], "city-popup visible", label
+            return pts[0]["customdata"], "modal-overlay visible"
 
-    return no_update, no_update, no_update
+    return no_update, no_update
 
 
 @app.callback(
@@ -793,7 +624,7 @@ def update_modal(city_json):
     if not city_json:
         return html.Div()
     city = json.loads(city_json) if isinstance(city_json, str) else city_json
-    return build_popup_body(city)
+    return build_modal_body(city)
 
 
 @app.callback(
