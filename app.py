@@ -534,6 +534,7 @@ app.layout = html.Div(
                     },
                 },
                 style={"height": "100%", "width": "100%"},
+                responsive=True,
             ),
             className="globe-wrap",
         ),
