@@ -115,15 +115,15 @@ def build_figure(view_mode: str = "globe", continent: str = "All") -> go.Figure:
             )
         )
 
-    # ── Natural Earth colours ──────────────────────────────────────────────
+    # ── Globe colours (vivid enough to be clearly visible) ────────────────
     geo = dict(
-        showland=True,        landcolor="#2d5e1e",
-        showocean=True,       oceancolor="#12345e",
-        showcountries=True,   countrycolor="#3a7028",  countrywidth=0.5,
-        showcoastlines=True,  coastlinecolor="#4a9040", coastlinewidth=0.7,
-        showlakes=True,       lakecolor="#1a4972",
-        showrivers=True,      rivercolor="#1a4972",     riverwidth=0.4,
-        bgcolor="rgba(0,0,0,0)",
+        showland=True,        landcolor="#2a7a1e",
+        showocean=True,       oceancolor="#1060a0",
+        showcountries=True,   countrycolor="#55aa30",  countrywidth=0.6,
+        showcoastlines=True,  coastlinecolor="#66cc44", coastlinewidth=1.0,
+        showlakes=True,       lakecolor="#1a72c0",
+        showrivers=True,      rivercolor="#1a72c0",     riverwidth=0.5,
+        bgcolor="#0a1828",
         showframe=False,
         resolution=50,
     )
@@ -153,7 +153,8 @@ def build_figure(view_mode: str = "globe", continent: str = "All") -> go.Figure:
             tracegroupgap=3,
         ),
         margin=dict(l=0, r=0, t=0, b=0),
-        autosize=True,
+        height=650,       # explicit fallback so Plotly renders immediately
+        autosize=True,    # overrides height once container is measured
         uirevision=view_mode,
     )
     return fig
@@ -533,7 +534,7 @@ app.layout = html.Div(
                         "height": 900, "width": 1400, "scale": 2,
                     },
                 },
-                style={"height": "100%", "width": "100%"},
+                style={"height": "calc(100vh - 130px)", "width": "100%"},
                 responsive=True,
             ),
             className="globe-wrap",

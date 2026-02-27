@@ -275,16 +275,18 @@ html, body {
 
 /* ─── Globe Container ────────────────────────────────────────────────────── */
 .globe-wrap {
-  /* Explicit calc height — the only reliable way to size a Plotly geo chart */
-  height: calc(100vh - var(--header-h) - var(--controls-h));
   width: 100%;
-  flex-shrink: 0;
+  /* height is driven by dcc.Graph style calc(100vh-130px) — no need to set it here */
   position: relative;
+  flex-shrink: 0;
   overflow: hidden;
 }
 
-/* Force every wrapper Dash & Plotly insert to fill the container */
-.globe-wrap .dash-graph,
+/* Make every Dash/Plotly wrapper fill the graph element */
+.globe-wrap .dash-graph {
+  width: 100% !important;
+  height: 100% !important;
+}
 .globe-wrap .js-plotly-plot,
 .globe-wrap .plot-container,
 .globe-wrap .svg-container {
