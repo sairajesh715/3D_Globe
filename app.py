@@ -117,11 +117,11 @@ def build_figure(view_mode: str = "globe", continent: str = "All") -> go.Figure:
 
     # ── Globe colours — fully transparent ocean so CSS starfield shows through ──
     geo = dict(
-        showland=True,        landcolor="#0c1e2e",
-        showocean=True,       oceancolor="rgba(0,0,0,0)",  # transparent → stars visible
+        showland=True,        landcolor="rgb(12,30,46)",
+        showocean=True,       oceancolor="rgb(3,19,45)",
         showcountries=True,   countrycolor="#1c3a54",  countrywidth=0.6,
         showcoastlines=True,  coastlinecolor="#1e3f5c", coastlinewidth=0.8,
-        showlakes=True,       lakecolor="rgba(0,0,0,0)",
+        showlakes=True,       lakecolor="rgb(3,19,45)",
         showrivers=False,
         bgcolor="rgba(0,0,0,0)",   # transparent → no solid rect outside sphere
         showframe=False,
